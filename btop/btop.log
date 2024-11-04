@@ -31,3 +31,6 @@
 
 2024/10/28 (22:43:50) | ===> btop++ v.1.4.0
 2024/10/28 (22:43:50) | WARNING: No UTF-8 locale detected! Some symbols might not display correctly.
+
+2024/11/08 (15:19:43) | ===> btop++ v.1.4.0
+2024/11/08 (15:19:43) | ERROR: Exception during Config::unlock() : _Map_base::at
