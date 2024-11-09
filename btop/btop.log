@@ -34,3 +34,6 @@
 
 2024/11/08 (15:19:43) | ===> btop++ v.1.4.0
 2024/11/08 (15:19:43) | ERROR: Exception during Config::unlock() : _Map_base::at
+
+2024/11/09 (16:22:52) | ===> btop++ v.1.4.0
+2024/11/09 (16:22:52) | ERROR: Exception during Config::unlock() : _Map_base::at
