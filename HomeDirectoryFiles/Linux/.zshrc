@@ -1,3 +1,6 @@
+# -- Launching Fast-Fest --
+/home/linuxbrew/.linuxbrew/bin/fastfetch
+
 ## History Setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
@@ -28,9 +31,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
 --multi" 
-
-# Created by newuser for 5.9
-
 
 # -- HomeBrew -- #
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
