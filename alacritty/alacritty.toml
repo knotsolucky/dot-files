@@ -8,7 +8,6 @@ startup_mode = "SimpleFullscreen"
 
 [font]
 normal.family = "GeistMono NF"
-bold.family = "GeistMono Nerd Font"
 size = 18
 
 # NOTE: CATPUCCTIN THEME
