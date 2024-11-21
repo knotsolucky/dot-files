@@ -1,4 +1,8 @@
+export DISPLAY=:0
+export XAUTHORITY=$HOME/.Xauthority
+
 # -- Launching Fast-Fest --
+
 eval "(/home/linuxbrew/.linuxbrew/bin/fastfetch)"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
