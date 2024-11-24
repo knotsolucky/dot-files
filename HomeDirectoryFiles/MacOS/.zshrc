@@ -1,9 +1,9 @@
-export DISPLAY=:0
-export XAUTHORITY=$HOME/.Xauthority
-
 # -- Launching Fast-Fest --
+fastfetch 
 
-eval "(/home/linuxbrew/.linuxbrew/bin/fastfetch)"
+# -- Starship --
+eval "$(starship init zsh)"
+
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -11,9 +11,6 @@ eval "(/home/linuxbrew/.linuxbrew/bin/fastfetch)"
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-
-
 
 ## History Setup
 HISTFILE=$HOME/.zhistory
@@ -24,12 +21,11 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
-# WSL / Linux
-source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# MacOS
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ---- Eza (better ls) -----
-
 alias ls="eza --icons=always"
 
 # --- FZF ---
@@ -41,10 +37,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
 --multi" 
-
-# -- HomeBrew -- #
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-source /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
