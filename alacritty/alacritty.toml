@@ -7,7 +7,7 @@ startup_mode = "SimpleFullscreen"
 #blur = true 
 
 [font]
-normal.family = "GeistMono NF"
+normal.family = "JetBrainsMono NF"
 size = 18
 
 # NOTE: CATPUCCTIN THEME

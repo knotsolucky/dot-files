@@ -32,10 +32,8 @@ return {
         "prismals",
         "pyright",
         "clangd", -- c/c++ language server
-        "gopls",  -- Go language server
-        "rust_analyzer",  -- Rust language server
+        "ts_ls",
       },
     })
   end,
 }
-

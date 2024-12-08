@@ -144,53 +144,6 @@ return {
           },
         })
       end,
-
-      -- Go specific configuration
-      ["gopls"] = function()
-        lspconfig["gopls"].setup({
-          capabilities = capabilities,
-          cmd = { "gopls" },
-          filetypes = { "go", "gomod", "gowork", "gotmpl" },
-          root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
-          settings = {
-            gopls = {
-              analyses = {
-                unusedparams = true, -- Highlight unused parameters
-                shadow = true,      -- Detect shadowed variables
-              },
-              staticcheck = true,  -- Enable Staticcheck for better diagnostics
-              usePlaceholders = true, -- Enable completion placeholders
-              completeUnimported = true, -- Auto-complete unimported packages
-            },
-          },
-        })
-      end,
-
-      -- Rust-specific configuration using rust-analyzer
-      ["rust_analyzer"] = function()
-        lspconfig["rust_analyzer"].setup({
-          capabilities = capabilities,
-          settings = {
-            ["rust-analyzer"] = {
-              assist = { 
-                importGranularity = "module", -- Configure auto-imports behavior
-                importPrefix = "by_crate",    -- Configure import style
-              },
-              diagnostics = { 
-                enable = true,                -- Enable diagnostics
-                disabled = { "unresolved-proc-macro" }, -- Disable specific diagnostics
-              },
-              cargo = {
-                runBuildScripts = true,       -- Run build scripts in the background
-                loadOutDirsFromCheck = true,  -- Use output dirs for diagnostics
-              },
-              procMacro = { enable = true }, -- Enable procedural macros
-            },
-          },
-        })
-      end,
-    }) -- <- Ensure this closing bracket matches here
-
+    })
   end,
 }
-
