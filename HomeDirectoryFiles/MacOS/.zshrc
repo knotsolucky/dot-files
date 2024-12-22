@@ -1,9 +1,8 @@
 # -- Launching Fast-Fest --
-fastfetch 
+#fastfetch 
 
 # -- Starship --
 eval "$(starship init zsh)"
-
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -28,7 +27,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ---- Eza (better ls) -----
 alias ls="eza --icons=always"
 
-# For Yazi
+# -- For Yazi --
 export EDITOR="nvim"
 
 # -- For Zoxide --

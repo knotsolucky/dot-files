@@ -17,6 +17,7 @@ config = {
   macos_window_background_blur = 10,
   color_scheme = "tokyonight_night",
   native_macos_fullscreen_mode = true,
+
 }
 
 return config
