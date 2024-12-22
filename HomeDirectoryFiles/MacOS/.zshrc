@@ -28,6 +28,10 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ---- Eza (better ls) -----
 alias ls="eza --icons=always"
 
+
+# -- For Zoxide --
+alias cd="z"
+
 # --- FZF ---
 alias fzf='fzf --bind "enter:execute(nvim {})"'
 
