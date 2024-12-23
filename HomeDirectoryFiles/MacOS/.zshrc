@@ -1,6 +1,9 @@
 # -- Launching Fast-Fest --
 #fastfetch 
 
+# -- For Zoxide --
+eval "$(zoxide init --cmd cd zsh)"
+
 # -- Starship --
 eval "$(starship init zsh)"
 
@@ -30,8 +33,7 @@ alias ls="eza --icons=always"
 # -- For Yazi --
 export EDITOR="nvim"
 
-# -- For Zoxide --
-alias cd="z"
+
 
 # --- FZF ---
 alias fzf='fzf --bind "enter:execute(nvim {})"'
