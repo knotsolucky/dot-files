@@ -1,5 +1,5 @@
 
-theme = tokyonight-storm
+theme = tokyonight
 fullscreen = true
 
 shell-integration = zsh
