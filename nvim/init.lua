@@ -1,2 +1,2 @@
-require("Habeeb.core")
-require("Habeeb.lazy")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")

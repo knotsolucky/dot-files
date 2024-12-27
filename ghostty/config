@@ -1,0 +1,11 @@
+
+theme = tokyonight-storm
+fullscreen = true
+
+shell-integration = zsh
+window-theme = system
+resize-overlay = always
+font-size = 18
+font-family = JetBrainsMono NF
+macos-non-native-fullscreen = true
+macos-option-as-alt = true
