@@ -1,11 +1,14 @@
+# Hyprland Only
+gtk-titlebar = false
+fullscreen = false
 
+# MacOS Only
+font-family = JetBrainsMono NF
+macos-non-native-fullscreen = true
+
+# General
 theme = tokyonight
-fullscreen = true
-
 shell-integration = zsh
 window-theme = system
 resize-overlay = always
 font-size = 18
-font-family = JetBrainsMono NF
-macos-non-native-fullscreen = true
-macos-option-as-alt = true
