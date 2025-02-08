@@ -1,10 +1,14 @@
 # Hyprland Only
 gtk-titlebar = false
-fullscreen = false
+# fullscreen = false
 
-# MacOS Only
-font-family = JetBrainsMono NF
-macos-non-native-fullscreen = true
+font-family = JetBrainsMono NFP 
+macos-non-native-fullscreen = false
+fullscreen = false
+font-thicken = true
+macos-titlebar-style = "transparent"
+#title = " " 
+
 
 # General
 theme = tokyonight
