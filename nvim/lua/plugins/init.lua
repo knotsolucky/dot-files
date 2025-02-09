@@ -1,5 +1,13 @@
 return {
 
+{
+    'junnplus/lsp-setup.nvim',
+    dependencies = {
+        'neovim/nvim-lspconfig',
+        'williamboman/mason.nvim', -- optional
+        'williamboman/mason-lspconfig.nvim', -- optional
+    },
+},
 
   {
   "folke/noice.nvim",
@@ -19,8 +27,9 @@ return {
 
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = {"BufReadPre","BufWritePre"}, -- uncomment for format on save
     opts = require "configs.conform",
+
   },
 
   -- These are some examples, uncomment them if you want to see them work!

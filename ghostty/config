@@ -1,18 +1,12 @@
-# Hyprland Only
 gtk-titlebar = false
-# fullscreen = false
 
 font-family = JetBrainsMono NFP 
 macos-non-native-fullscreen = false
 fullscreen = false
 font-thicken = true
 macos-titlebar-style = "transparent"
-#title = " " 
-
-
-# General
 theme = tokyonight
 shell-integration = zsh
 window-theme = system
 resize-overlay = always
-font-size = 18
+font-size = 19
