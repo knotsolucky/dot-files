@@ -57,16 +57,6 @@ o.backup = false -- Disable backup files
 o.swapfile = false -- Disable swap files
 o.writebackup = false -- Disable write-backup
 
--- File Type Specific Settings (Example for Python)
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "python",
-  callback = function()
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-  end,
-})
-
 -- Enhanced Command Line
 o.wildmenu = true -- Enhanced command-line completion
 o.wildmode = "list:longest" -- Show longer completion options in the command line
@@ -76,4 +66,4 @@ o.history = 1000 -- Increase the history length for command-line input
 o.mouse = "a" -- Enable mouse support for all modes
 
 -- Enable Filetype Detection
-o.filetype = "on"
+o.filetype = "off"
