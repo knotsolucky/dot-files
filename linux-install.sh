@@ -46,3 +46,5 @@ brew install gitui
 brew install yazi
 brew install vim-plug
 
+
+cp -a . HomeDirectoryFiles/Linux/ ~/

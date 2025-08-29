@@ -64,3 +64,4 @@ brew install --cask tidal
 brew install --cask ghostty
 brew install --cask alt-tab
 
+cp -a . HomeDirectoryFiles/MacOS/ ~/
