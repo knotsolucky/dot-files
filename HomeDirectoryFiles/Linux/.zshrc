@@ -3,7 +3,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/starship init zsh)"
 
 
 # Zoxide Setup
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/zoxide init --cmd cd zsh)"
 
 # History Setup
 HISTFILE=$HOME/.zhistory

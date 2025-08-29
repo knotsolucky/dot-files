@@ -1,5 +1,0 @@
-[plugin]
-deps = []
-
-[flavor]
-deps = [{ use = "tkapias/nightfly", rev = "599b8ad" }]
