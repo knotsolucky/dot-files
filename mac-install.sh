@@ -1,6 +1,5 @@
 brew tap homebrew/autoupdate
-brew tap homebrew/bundle
-brew tap homebrew/cask-fonts
+brew tap homebrew/bundle brew tap homebrew/cask-fonts
 brew tap homebrew/services
 
 brew install wget
@@ -64,4 +63,4 @@ brew install --cask tidal
 brew install --cask ghostty
 brew install --cask alt-tab
 
-cp -a . HomeDirectoryFiles/MacOS/ ~/
+cp -a . HomeDirectoryFiles/MacOS/ ~/.
