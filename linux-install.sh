@@ -139,4 +139,20 @@ sudo pacman -S --noconfirm gvfs
 sudo pacman -S --noconfirm firefox
 sudo pacman -S --noconfirm mesa-demos
 
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+
+
+yay -S aylurs-gtk-shell-git --noconfirm
+yay -S spotify-launcher --noconfirm
+yay -S yay --noconfirm
+yay -S yazi --noconfirm
+yay -S zen-browser-bin --noconfirm 
+
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
+git clone https://aur.archlinux.org/1password.git
+cd 1password
+makepkg -si
+
 cp -a . HomeDirectoryFiles/Linux/ ~/.
