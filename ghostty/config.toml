@@ -1,0 +1,31 @@
+# ~/.config/ghostty/config.toml
+
+[window]
+decorations = "client"         # Use window decorations managed by Ghostty
+padding_x = 8
+padding_y = 12
+opacity = 0.95                 # Slight transparency
+startup_mode = "windowed"
+
+[font]
+family = "JetBrainsMono Nerd Font"
+size = 20 
+
+[ui]
+show_scrollbar = false
+show_tab_bar = false           # Ghostty doesn't support tabs natively
+show_title = true              # Will use OS-level title bar (if available)
+
+[colors]
+foreground = "#dcd7ba"
+background = "#1f1f28"
+cursor_bg = "#c8c093"
+cursor_border = "#c8c093"
+cursor_fg = "#1f1f28"
+
+# Optional: Set theme
+import = ["kanagawa"]
+
+[shell]
+program = "/bin/zsh"
+
