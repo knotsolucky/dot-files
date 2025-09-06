@@ -45,6 +45,7 @@ brew install fzf
 brew install gh
 brew install gitui
 brew install vim-plug
+brew install cmake
 
 brew install --cask arc
 brew install --cask brave-browser
