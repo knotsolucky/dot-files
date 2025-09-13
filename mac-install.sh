@@ -46,6 +46,7 @@ brew install gh
 brew install gitui
 brew install vim-plug
 brew install cmake
+brew install mavon
 
 brew install --cask arc
 brew install --cask brave-browser
@@ -63,5 +64,7 @@ brew install --cask setapp
 brew install --cask tidal
 brew install --cask ghostty
 brew install --cask alt-tab
+brew install --cask zen-browser
+brew install --cask wezterm
 
-cp -a . HomeDirectoryFiles/MacOS/ ~/.
+cp -a . HomeDirectoryFiles/MacOS/ ~/.config/
