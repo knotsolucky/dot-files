@@ -1,7 +1,9 @@
 return {
-"Yazeed1s/oh-lucy.nvim",
-priority = 1000,
-config = function()
-  vim.cmd("colorscheme oh-lucy")
-end
+  "thesimonho/kanagawa-paper.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme("kanagawa-paper-ink")
+  end,
 }
+

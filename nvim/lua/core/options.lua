@@ -10,6 +10,9 @@ opt.smartcase = true
 opt.termguicolors = true -- Allows for colourshemes to properly show up
 opt.background = "dark"
 opt.signcolumn = "yes"
+vim.g.mapleader = " "
 
+
+opt.fillchars:append({ eob = " " }) -- Gets rid of those annoying "~" lines in the terminal
 
 opt.clipboard:append("unnamedplus")
