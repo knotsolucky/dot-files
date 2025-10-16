@@ -8,11 +8,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
   },
   config = function()
-    -- import lspconfig plugin
+    -- import lspconfig plugin (using newer API)
     local lspconfig = require("lspconfig")
-
-    -- import mason_lspconfig plugin
-    local mason_lspconfig = require("mason-lspconfig")
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -78,50 +75,134 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- Configure LSP servers via mason-lspconfig
-    mason_lspconfig.setup_handlers({
-      -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["svelte"] = function()
-        -- configure svelte server
+    -- Configure diagnostic settings
+    vim.diagnostic.config({
+      virtual_text = {
+        severity = vim.diagnostic.severity.ERROR,
+        source = "always",
+        prefix = "●",
+      },
+      signs = {
+        active = signs,
+      },
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+      float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+      },
+    })
+
+    -- Configure individual LSP servers directly
+    local servers = {
+      "ts_ls", -- Updated from deprecated "tsserver"
+      "html", 
+      "cssls",
+      "tailwindcss",
+      "svelte",
+      "lua_ls",
+      "graphql",
+      "emmet_ls",
+      "prismals",
+      "pyright",
+    }
+
+    for _, server in ipairs(servers) do
+      if server == "svelte" then
         lspconfig["svelte"].setup({
           capabilities = capabilities,
           on_attach = function(client, bufnr)
             vim.api.nvim_create_autocmd("BufWritePost", {
               pattern = { "*.js", "*.ts" },
               callback = function(ctx)
-                -- Here use ctx.match instead of ctx.file
                 client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
               end,
             })
           end,
         })
-      end,
-      ["graphql"] = function()
-        -- configure graphql language server
+      elseif server == "graphql" then
         lspconfig["graphql"].setup({
           capabilities = capabilities,
           filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
         })
-      end,
-      ["emmet_ls"] = function()
-        -- configure emmet language server
+      elseif server == "emmet_ls" then
         lspconfig["emmet_ls"].setup({
           capabilities = capabilities,
           filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
         })
-      end,
-      ["lua_ls"] = function()
-        -- configure lua server (with special settings)
+      elseif server == "tailwindcss" then
+        lspconfig["tailwindcss"].setup({
+          capabilities = capabilities,
+          filetypes = { "html", "css", "scss", "sass", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+          settings = {
+            tailwindCSS = {
+              classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+              lint = {
+                cssConflict = "warning",
+                invalidApply = "error",
+                invalidConfigPath = "error",
+                invalidScreen = "error",
+                invalidTailwindDirective = "error",
+                invalidVariant = "error",
+                recommendedVariantOrder = "warning",
+              },
+              validate = true,
+            },
+          },
+        })
+      elseif server == "ts_ls" then
+        lspconfig["ts_ls"].setup({
+          capabilities = capabilities,
+          filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+          settings = {
+            typescript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+              suggest = {
+                includeCompletionsForImportStatements = true,
+                includeCompletionsWithSnippetText = true,
+                includeCompletionsWithClassMemberSnippets = true,
+                includeCompletionsWithObjectLiteralMethodSnippets = true,
+                includeAutomaticOptionalChainCompletions = true,
+              },
+            },
+            javascript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+              suggest = {
+                includeCompletionsForImportStatements = true,
+                includeCompletionsWithSnippetText = true,
+                includeCompletionsWithClassMemberSnippets = true,
+                includeCompletionsWithObjectLiteralMethodSnippets = true,
+                includeAutomaticOptionalChainCompletions = true,
+              },
+            },
+          },
+        })
+      elseif server == "lua_ls" then
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
           settings = {
             Lua = {
-              -- make the language server recognize "vim" global
               diagnostics = {
                 globals = { "vim" },
               },
@@ -131,7 +212,12 @@ return {
             },
           },
         })
-      end,
-    })
+      else
+        -- Default setup for other servers
+        lspconfig[server].setup({
+          capabilities = capabilities,
+        })
+      end
+    end
   end,
 }
