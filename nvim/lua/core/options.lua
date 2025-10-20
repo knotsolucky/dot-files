@@ -14,5 +14,7 @@ vim.g.mapleader = " "
 
 
 opt.fillchars:append({ eob = " " }) -- Gets rid of those annoying "~" lines in the terminal
-
 opt.clipboard:append("unnamedplus")
+
+-- Suppress deprecation warnings
+vim.deprecate = function() end
