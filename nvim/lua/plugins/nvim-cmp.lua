@@ -34,6 +34,7 @@ return {
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
+        max_item_count = 5,
       },
       snippet = {
         expand = function(args)
@@ -75,12 +76,12 @@ return {
         end, { "i", "s" }),
       },
       sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
+        { name = "nvim_lsp", max_item_count = 5 },
+        { name = "luasnip", max_item_count = 3 },
+        { name = "buffer", max_item_count = 5 },
+        { name = "path", max_item_count = 3 },
         { name = "nvim_lsp_signature_help" },
-        { name = "nvim_lua" },
+        { name = "nvim_lua", max_item_count = 3 },
         { name = "calc" },
         { name = "emoji" },
         { name = "spell" },
@@ -107,6 +108,10 @@ return {
         completion = cmp.config.window.bordered({
           border = "rounded",
           winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+          max_height = 5,
+          max_width = 50,
+          col_offset = 0,
+          side_padding = 0,
         }),
         documentation = cmp.config.window.bordered({
           border = "rounded",
@@ -140,5 +145,7 @@ return {
         TypeParameter = "󰊄",
       },
     })
+
+    -- Remove custom transparency - let the colorscheme handle it naturally
   end,
 }

@@ -36,8 +36,9 @@ return {
         position = "bottom",
         margin = { 1, 0, 1, 0 },
         padding = { 2, 2, 2, 2 },
-        winblend = 10,
+        winblend = 30,
         zindex = 1000,
+        relative = "editor",
       },
       layout = {
         height = { min = 4, max = 25 },
@@ -64,24 +65,58 @@ return {
       },
     })
 
-    -- Register key groups for better organization
+    -- Set transparency for which-key
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = function()
+        vim.api.nvim_set_hl(0, "WhichKey", { bg = "NONE", fg = "NONE" })
+        vim.api.nvim_set_hl(0, "WhichKeyGroup", { bg = "NONE", fg = "NONE" })
+        vim.api.nvim_set_hl(0, "WhichKeySeparator", { bg = "NONE", fg = "NONE" })
+        vim.api.nvim_set_hl(0, "WhichKeyDesc", { bg = "NONE", fg = "NONE" })
+        vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "NONE", fg = "NONE" })
+        vim.api.nvim_set_hl(0, "WhichKeyBorder", { bg = "NONE", fg = "NONE" })
+      end,
+    })
+
+    -- Register clean key groups by function type (ONLY WORKING COMMANDS)
     wk.register({
-      ["<leader>f"] = { name = "Find" },
-      ["<leader>e"] = { name = "Explorer" },
-      ["<leader>c"] = { name = "Code" },
-      ["<leader>r"] = { name = "Rename" },
-      ["<leader>s"] = { name = "Search" },
-      ["<leader>w"] = { name = "Workspace" },
-      ["<leader>x"] = { name = "Diagnostics" },
-      ["<leader>t"] = { name = "Terminal" },
+      -- Files & Find (Telescope)
+      ["<leader>f"] = { name = "Files & Find" },
+      
+      -- Buffers
       ["<leader>b"] = { name = "Buffers" },
-      ["<leader>g"] = { name = "Git" },
+      
+      -- Explorer (NvimTree)
+      ["<leader>e"] = { name = "Explorer" },
+      
+      -- LSP Actions
       ["<leader>l"] = { name = "LSP" },
-      ["<leader>d"] = { name = "Debug" },
-      ["<leader>D"] = { name = "Buffer Diagnostics" },
-      ["]"] = { name = "Next" },
-      ["["] = { name = "Previous" },
-      ["g"] = { name = "Goto" },
+      
+      -- Code & Diagnostics
+      ["<leader>c"] = { name = "Code & Diagnostics" },
+      
+      -- Git (Telescope)
+      ["<leader>g"] = { name = "Git" },
+      
+      -- Windows
+      ["<leader>w"] = { name = "Windows" },
+      
+      -- Tabs
+      ["<leader>T"] = { name = "Tabs" },
+      
+      -- Trouble (Diagnostics)
+      ["<leader>t"] = { name = "Trouble" },
+      
+      -- Symbols
+      ["<leader>s"] = { name = "Symbols" },
+      
+      -- Execute
+      ["<leader>x"] = { name = "Execute" },
+      
+      -- Notifications
+      ["<leader>n"] = { name = "Notifications" },
+      
+      -- Quick Access
+      ["<leader>o"] = { name = "Quick Access" },
     })
   end,
 }

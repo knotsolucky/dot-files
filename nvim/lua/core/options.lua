@@ -10,6 +10,8 @@ opt.smartcase = true
 opt.termguicolors = true -- Allows for colourshemes to properly show up
 opt.background = "dark"
 opt.signcolumn = "yes"
+opt.pumblend = 20 -- Transparency for popup menus
+opt.winblend = 20 -- Transparency for floating windows
 vim.g.mapleader = " "
 
 

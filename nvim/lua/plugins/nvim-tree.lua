@@ -18,6 +18,9 @@ return {
         preserve_window_proportions = true,
         number = false,
         signcolumn = "yes",
+        float = {
+          enable = false,
+        },
       },
       renderer = {
         group_empty = true,
@@ -107,6 +110,8 @@ return {
         },
       },
     })
+
+    -- Remove custom transparency - let the colorscheme handle it naturally
 
     -- Keybinds
     local keymap = vim.keymap

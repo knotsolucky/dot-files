@@ -39,7 +39,7 @@ return {
       },
     },
     popupmenu = {
-      enabled = true,
+      enabled = false,
       backend = "nui",
     },
     notify = {
