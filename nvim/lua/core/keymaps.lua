@@ -196,3 +196,24 @@ keymap.set("n", "]e", vim.diagnostic.goto_next, { desc = "Next error" })
 
 -- Quick outline access
 keymap.set("n", "<leader>o", "<cmd>lua require('aerial').toggle()<CR>", { desc = "Toggle outline" })
+
+-- =========================================================================
+-- AI / COPILOT
+-- =========================================================================
+
+vim.keymap.set("n", "<leader>co", function()
+  local ok, suggestion = pcall(require, "copilot.suggestion")
+  if not ok then
+    local lazy_ok, lazy = pcall(require, "lazy")
+    if lazy_ok then
+      lazy.load({ plugins = { "copilot.lua" } })
+      ok, suggestion = pcall(require, "copilot.suggestion")
+    end
+  end
+  if ok and suggestion and suggestion.toggle_auto_trigger then
+    suggestion.toggle_auto_trigger()
+    vim.notify("Toggled Copilot auto-trigger", vim.log.levels.INFO, { title = "Copilot" })
+  else
+    vim.notify("Copilot not available", vim.log.levels.WARN, { title = "Copilot" })
+  end
+end, { desc = "Toggle Copilot inline suggestions" })

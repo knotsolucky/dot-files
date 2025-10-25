@@ -78,9 +78,23 @@ return {
     -- Configure diagnostic settings
     vim.diagnostic.config({
       virtual_text = {
-        severity = vim.diagnostic.severity.ERROR,
+        -- Show warnings and above inline; you can raise/lower this if desired
+        severity = { min = vim.diagnostic.severity.WARN },
         source = "always",
-        prefix = "●",
+        -- Severity-based icons for quick scanning in-buffer
+        prefix = function(diagnostic)
+          local level = diagnostic.severity
+          if level == vim.diagnostic.severity.ERROR then
+            return " "
+          elseif level == vim.diagnostic.severity.WARN then
+            return " "
+          elseif level == vim.diagnostic.severity.INFO then
+            return " "
+          elseif level == vim.diagnostic.severity.HINT then
+            return " "
+          end
+          return "●"
+        end,
       },
       signs = {
         active = signs,
@@ -110,6 +124,10 @@ return {
       "emmet_ls",
       "prismals",
       "pyright",
+      -- Added
+      "clangd",
+      "omnisharp",
+      -- jdtls is typically configured via ftplugin; left to Mason to install
     }
 
     for _, server in ipairs(servers) do
@@ -211,6 +229,18 @@ return {
               },
             },
           },
+        })
+      elseif server == "clangd" then
+        lspconfig["clangd"].setup({
+          capabilities = capabilities,
+          cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed", "--header-insertion=iwyu" },
+        })
+      elseif server == "omnisharp" then
+        lspconfig["omnisharp"].setup({
+          capabilities = capabilities,
+          -- Use the modern handler names for omnisharp formatting if needed later
+          enable_roslyn_analyzers = true,
+          organize_imports_on_format = true,
         })
       else
         -- Default setup for other servers

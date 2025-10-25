@@ -32,6 +32,7 @@ return {
     end
 
     cmp.setup({
+      preselect = cmp.PreselectMode.Item,
       completion = {
         completeopt = "menu,menuone,preview,noselect",
         max_item_count = 5,
@@ -118,16 +119,23 @@ return {
           winhighlight = "Normal:CmpDoc",
         }),
       },
+      experimental = {
+        ghost_text = false,
+      },
     })
 
     -- Command line completion
     cmp.setup.cmdline({ "/", "?" }, {
       mapping = cmp.mapping.preset.cmdline(),
+      formatting = { fields = { "abbr" } },
+      completion = { keyword_length = 2 },
       sources = { { name = "buffer" } },
     })
 
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
+      formatting = { fields = { "abbr" } },
+      completion = { keyword_length = 2 },
       sources = cmp.config.sources(
         { { name = "path" } },
         { { name = "cmdline" } }

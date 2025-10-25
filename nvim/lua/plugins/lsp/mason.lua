@@ -37,10 +37,16 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
+        -- Added: C/C++/Java/C#
+        "clangd",
+        "jdtls",
+        "omnisharp",
       },
     })
 
     mason_tool_installer.setup({
+      run_on_start = true,
+      start_delay = 3000,
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
@@ -49,6 +55,10 @@ return {
         "pylint", -- python linter
         "eslint_d", -- js linter
         "luacheck", -- lua linter
+        -- Added language tools
+        "clang-format",
+        "cpplint",
+        "csharpier",
       },
     })
   end,
